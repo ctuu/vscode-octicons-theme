@@ -1,0 +1,35 @@
+{
+    "name": "octicons",
+    "displayName": "Octicons",
+    "description": "An Icon theme use Github's Octions for Visual Studio Code",
+    "version": "0.0.1",
+    "publisher": "ctuu",
+    "license": "MIT",
+    "engines": {
+        "vscode": "^1.51.0"
+    },
+    "scripts": {
+        "vscode:prepublish": "node src/index.mjs",
+        "build": "node src/index.mjs"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "keywords": [
+        "icon",
+        "octicons"
+    ],
+    "contributes": {
+        "iconThemes": [
+            {
+                "id": "octions",
+                "label": "Octions",
+                "path": "./dist/octicons-icon-theme.json"
+            }
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ctuu/vscode-octicons-theme.git"
+    }
+}

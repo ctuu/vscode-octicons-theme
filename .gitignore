@@ -1,0 +1,9 @@
+node_modules
+*.vsix
+
+# System Files
+.DS_Store
+Thumbs.db
+
+.vscode/**
+!.vscode/launch.json
