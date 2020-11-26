@@ -5,18 +5,24 @@ export function createIconTheme(dist) {
     const theme = {
         iconDefinitions: {},
         fileExtensions: {},
+        light: {
+            fileExtensions: {}
+        },
 
-        addIcon(iconPath) {
+        addIcon(iconPath, suffix = 'default') {
             const basename = path.basename(iconPath).replaceAll('-', '_').replace(path.extname(iconPath), '')
-            const id = `_${basename}`
+            const id = `_${basename}_${suffix}`
             this.iconDefinitions[id] = {
                 iconPath: path.relative(dist, iconPath)
             }
             return id
         },
 
-        associateWithExt(id, exts) {
-            exts.forEach(ext => this.fileExtensions[ext] = id)
+        associateWithExt(dark_id, light_id, exts) {
+            exts.forEach(ext => {
+                this.fileExtensions[ext] = dark_id
+                if (light_id) this.light.fileExtensions[ext] = light_id
+            })
         },
 
         out(filename) {
